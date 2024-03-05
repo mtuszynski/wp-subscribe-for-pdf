@@ -20,7 +20,10 @@
  * @subpackage Wp_Subscribe_For_Pdf/admin
  * @author     MirT <tuszynski.mir@gmail.com>
  */
-class Wp_Subscribe_For_Pdf_Admin {
+require_once plugin_dir_path(__FILE__) . 'partials/class-wp-subscribe-for-pdf-menu.php';
+
+class Wp_Subscribe_For_Pdf_Admin
+{
 
 	/**
 	 * The ID of this plugin.
@@ -47,11 +50,13 @@ class Wp_Subscribe_For_Pdf_Admin {
 	 * @param      string    $plugin_name       The name of this plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version ) {
+	public function __construct($plugin_name, $version)
+	{
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
-
+		$menu = new Wp_Subscribe_For_Pdf_Menu();
+		add_action('admin_menu', array($menu, 'wp_subscribe_for_pdf_menu'));
 	}
 
 	/**
@@ -59,7 +64,8 @@ class Wp_Subscribe_For_Pdf_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_styles() {
+	public function enqueue_styles()
+	{
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -73,8 +79,8 @@ class Wp_Subscribe_For_Pdf_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp-subscribe-for-pdf-admin.css', array(), $this->version, 'all' );
-
+		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/wp-subscribe-for-pdf-admin.css', array(), $this->version, 'all');
+		wp_enqueue_style('datatables-style', 'https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css');
 	}
 
 	/**
@@ -82,7 +88,8 @@ class Wp_Subscribe_For_Pdf_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_scripts() {
+	public function enqueue_scripts()
+	{
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -96,8 +103,7 @@ class Wp_Subscribe_For_Pdf_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-subscribe-for-pdf-admin.js', array( 'jquery' ), $this->version, false );
-
+		wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/wp-subscribe-for-pdf-admin.js', array('jquery'), $this->version, false);
+		wp_enqueue_script('datatables-script', 'https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js', array('jquery'), $this->version, true);
 	}
-
 }

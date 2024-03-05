@@ -32,12 +32,14 @@ class Wp_Subscribe_For_Pdf_Deactivator
 	 */
 	public static function deactivate()
 	{
-		self::wp_subscribe_for_pdf_delete_table();
+		self::delete_table('wp_subscribe_for_pdf_subscribers');
+		self::delete_table('wp_subscribe_for_pdf_settings');
 	}
-	private static function wp_subscribe_for_pdf_delete_table()
+
+	private static function delete_table($table_suffix)
 	{
 		global $wpdb;
-		$table_name = $wpdb->prefix . "wp_subscribe_for_pdf";
+		$table_name = $wpdb->prefix . $table_suffix;
 
 		$sql = "DROP TABLE IF EXISTS $table_name";
 
