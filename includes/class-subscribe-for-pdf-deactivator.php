@@ -6,8 +6,8 @@
  * @link       https://https://github.com/mtuszynski
  * @since      1.0.0
  *
- * @package    Subscribe_To_Pdf
- * @subpackage Subscribe_To_Pdf/includes
+ * @package    Subscribe_For_Pdf
+ * @subpackage Subscribe_For_Pdf/includes
  */
 
 /**
@@ -16,11 +16,11 @@
  * This class defines all code necessary to run during the plugin's deactivation.
  *
  * @since      1.0.0
- * @package    Subscribe_To_Pdf
- * @subpackage Subscribe_To_Pdf/includes
+ * @package    Subscribe_For_Pdf
+ * @subpackage Subscribe_For_Pdf/includes
  * @author     MirT <office@mirt.pl>
  */
-class Subscribe_To_Pdf_Deactivator
+class Subscribe_For_Pdf_Deactivator
 {
 
 	/**

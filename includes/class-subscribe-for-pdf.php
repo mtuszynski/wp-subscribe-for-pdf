@@ -9,8 +9,8 @@
  * @link       https://https://github.com/mtuszynski
  * @since      1.0.0
  *
- * @package    Subscribe_To_Pdf
- * @subpackage Subscribe_To_Pdf/includes
+ * @package    Subscribe_For_Pdf
+ * @subpackage Subscribe_For_Pdf/includes
  */
 
 /**
@@ -23,11 +23,12 @@
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    Subscribe_To_Pdf
- * @subpackage Subscribe_To_Pdf/includes
+ * @package    Subscribe_For_Pdf
+ * @subpackage Subscribe_For_Pdf/includes
  * @author     MirT <office@mirt.pl>
  */
-class Subscribe_To_Pdf {
+class Subscribe_For_Pdf
+{
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -35,7 +36,7 @@ class Subscribe_To_Pdf {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Subscribe_To_Pdf_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      Subscribe_For_Pdf_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -66,19 +67,19 @@ class Subscribe_To_Pdf {
 	 *
 	 * @since    1.0.0
 	 */
-	public function __construct() {
-		if ( defined( 'SUBSCRIBE_TO_PDF_VERSION' ) ) {
-			$this->version = SUBSCRIBE_TO_PDF_VERSION;
+	public function __construct()
+	{
+		if (defined('Subscribe_For_Pdf_VERSION')) {
+			$this->version = Subscribe_For_Pdf_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
-		$this->plugin_name = 'subscribe-to-pdf';
+		$this->plugin_name = 'subscribe-for-pdf';
 
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
-
 	}
 
 	/**
@@ -86,10 +87,10 @@ class Subscribe_To_Pdf {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - Subscribe_To_Pdf_Loader. Orchestrates the hooks of the plugin.
-	 * - Subscribe_To_Pdf_i18n. Defines internationalization functionality.
-	 * - Subscribe_To_Pdf_Admin. Defines all hooks for the admin area.
-	 * - Subscribe_To_Pdf_Public. Defines all hooks for the public side of the site.
+	 * - Subscribe_For_Pdf_Loader. Orchestrates the hooks of the plugin.
+	 * - Subscribe_For_Pdf_i18n. Defines internationalization functionality.
+	 * - Subscribe_For_Pdf_Admin. Defines all hooks for the admin area.
+	 * - Subscribe_For_Pdf_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -97,50 +98,50 @@ class Subscribe_To_Pdf {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function load_dependencies() {
+	private function load_dependencies()
+	{
 
 		/**
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-subscribe-to-pdf-loader.php';
+		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-subscribe-for-pdf-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-subscribe-to-pdf-i18n.php';
+		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-subscribe-for-pdf-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-subscribe-to-pdf-admin.php';
+		require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-subscribe-for-pdf-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-subscribe-to-pdf-public.php';
+		require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-subscribe-for-pdf-public.php';
 
-		$this->loader = new Subscribe_To_Pdf_Loader();
-
+		$this->loader = new Subscribe_For_Pdf_Loader();
 	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the Subscribe_To_Pdf_i18n class in order to set the domain and to register the hook
+	 * Uses the Subscribe_For_Pdf_i18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function set_locale() {
+	private function set_locale()
+	{
 
-		$plugin_i18n = new Subscribe_To_Pdf_i18n();
+		$plugin_i18n = new Subscribe_For_Pdf_i18n();
 
-		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
-
+		$this->loader->add_action('plugins_loaded', $plugin_i18n, 'load_plugin_textdomain');
 	}
 
 	/**
@@ -150,13 +151,13 @@ class Subscribe_To_Pdf {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function define_admin_hooks() {
+	private function define_admin_hooks()
+	{
 
-		$plugin_admin = new Subscribe_To_Pdf_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new Subscribe_For_Pdf_Admin($this->get_plugin_name(), $this->get_version());
 
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-
+		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
+		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
 	}
 
 	/**
@@ -166,13 +167,13 @@ class Subscribe_To_Pdf {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function define_public_hooks() {
+	private function define_public_hooks()
+	{
 
-		$plugin_public = new Subscribe_To_Pdf_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new Subscribe_For_Pdf_Public($this->get_plugin_name(), $this->get_version());
 
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-
+		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
+		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
 	}
 
 	/**
@@ -180,7 +181,8 @@ class Subscribe_To_Pdf {
 	 *
 	 * @since    1.0.0
 	 */
-	public function run() {
+	public function run()
+	{
 		$this->loader->run();
 	}
 
@@ -191,7 +193,8 @@ class Subscribe_To_Pdf {
 	 * @since     1.0.0
 	 * @return    string    The name of the plugin.
 	 */
-	public function get_plugin_name() {
+	public function get_plugin_name()
+	{
 		return $this->plugin_name;
 	}
 
@@ -199,9 +202,10 @@ class Subscribe_To_Pdf {
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    Subscribe_To_Pdf_Loader    Orchestrates the hooks of the plugin.
+	 * @return    Subscribe_For_Pdf_Loader    Orchestrates the hooks of the plugin.
 	 */
-	public function get_loader() {
+	public function get_loader()
+	{
 		return $this->loader;
 	}
 
@@ -211,8 +215,8 @@ class Subscribe_To_Pdf {
 	 * @since     1.0.0
 	 * @return    string    The version number of the plugin.
 	 */
-	public function get_version() {
+	public function get_version()
+	{
 		return $this->version;
 	}
-
 }

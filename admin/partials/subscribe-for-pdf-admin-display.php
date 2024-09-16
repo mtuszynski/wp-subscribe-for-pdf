@@ -8,8 +8,8 @@
  * @link       https://https://github.com/mtuszynski
  * @since      1.0.0
  *
- * @package    Subscribe_To_Pdf
- * @subpackage Subscribe_To_Pdf/admin/partials
+ * @package    Subscribe_For_Pdf
+ * @subpackage Subscribe_For_Pdf/admin/partials
  */
 ?>
 

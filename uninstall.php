@@ -22,10 +22,10 @@
  * @link       https://https://github.com/mtuszynski
  * @since      1.0.0
  *
- * @package    Subscribe_To_Pdf
+ * @package    Subscribe_For_Pdf
  */
 
 // If uninstall not called from WordPress, then exit.
-if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
+if (! defined('WP_UNINSTALL_PLUGIN')) {
 	exit;
 }

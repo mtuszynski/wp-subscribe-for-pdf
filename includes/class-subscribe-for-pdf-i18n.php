@@ -9,8 +9,8 @@
  * @link       https://https://github.com/mtuszynski
  * @since      1.0.0
  *
- * @package    Subscribe_To_Pdf
- * @subpackage Subscribe_To_Pdf/includes
+ * @package    Subscribe_For_Pdf
+ * @subpackage Subscribe_For_Pdf/includes
  */
 
 /**
@@ -20,11 +20,12 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Subscribe_To_Pdf
- * @subpackage Subscribe_To_Pdf/includes
+ * @package    Subscribe_For_Pdf
+ * @subpackage Subscribe_For_Pdf/includes
  * @author     MirT <office@mirt.pl>
  */
-class Subscribe_To_Pdf_i18n {
+class Subscribe_For_Pdf_i18n
+{
 
 
 	/**
@@ -32,16 +33,13 @@ class Subscribe_To_Pdf_i18n {
 	 *
 	 * @since    1.0.0
 	 */
-	public function load_plugin_textdomain() {
+	public function load_plugin_textdomain()
+	{
 
 		load_plugin_textdomain(
-			'subscribe-to-pdf',
+			'subscribe-for-pdf',
 			false,
-			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
+			dirname(dirname(plugin_basename(__FILE__))) . '/languages/'
 		);
-
 	}
-
-
-
 }
