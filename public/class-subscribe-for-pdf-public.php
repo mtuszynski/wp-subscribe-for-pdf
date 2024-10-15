@@ -1,5 +1,5 @@
 <?php
-
+require_once plugin_dir_path(__FILE__) . 'partials/class-subscribe-for-pdf-form.php';
 /**
  * The public-facing functionality of the plugin.
  *
@@ -53,6 +53,7 @@ class Subscribe_For_Pdf_Public
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
+		new Subscribe_For_Pdf_Form();
 	}
 
 	/**

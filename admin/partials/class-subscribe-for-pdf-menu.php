@@ -29,7 +29,6 @@ class Subscribe_For_Pdf_Menu
 
     public function settings_page_content()
     {
-        // Sprawdzanie uprawnień użytkownika
         if (!current_user_can('manage_options')) {
             return;
         }
@@ -123,7 +122,6 @@ class Subscribe_For_Pdf_Menu
 
             printf(esc_html__('Settings updated successfully!', 'subscribe-for-pdf'));
         }
-
 ?>
         <form method="post" enctype="multipart/form-data">
             <?php wp_nonce_field('save_settings_action', 'save_settings_nonce'); ?>

@@ -2,3 +2,113 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
+.sutp-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100%;
+  background: rgba(255, 255, 255, 1);
+  z-index: 9999;
+  max-width: 100vw !important;
+}
+
+.sutp-container {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.sutp-red {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  text-align: center;
+  z-index: 10000;
+}
+
+.sutp-form {
+  width: 100%;
+  text-align: center;
+  margin: 32px auto 32px auto;
+}
+
+.sutp-form .sutp-form-group {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 320px;
+}
+
+.sutp-form-group {
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.sutp-form-control {
+  position: relative;
+  display: block;
+  width: 320px;
+  border: 1px solid rgba(0, 0, 0, 0.37);
+  border-radius: 4px;
+  background-color: transparent;
+  margin: 0px auto;
+  padding: 6px 4px 4px 14px;
+  height: 40px;
+  outline: none !important;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.85);
+  transition: all 0.2s ease-in-out;
+}
+
+.sutp-form-control + label {
+  position: absolute;
+  top: 20px;
+  left: 12px;
+  text-align: left;
+  display: inline-block;
+  padding: 0 4px;
+  height: 14px;
+  line-height: 14px;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.5);
+  margin: 0px auto;
+  cursor: text;
+  transition: all 0.15s ease-in-out;
+}
+
+.sutp-form-control:focus + label,
+.sutp-form-control.filled + label {
+  top: -6px;
+  color: #000;
+  font-weight: bold;
+}
+
+.form-field input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  max-width: 240px;
+}
+
+.form-field input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.sutp-form-asterisk {
+  background-color: inherit;
+  color: #e32b2b;
+  padding: 0;
+  padding-left: 3px;
+}
+.sutp-form-asterisk:after {
+  content: "*";
+}
